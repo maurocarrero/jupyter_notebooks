@@ -1,5 +1,8 @@
 apache-beam[interactive]
 google-cloud-bigquery[bqstorage,pandas]
+google-cloud-pubsub
 google-cloud-storage
+matplotlib
 mysqlclient
+numpy
 pandas
