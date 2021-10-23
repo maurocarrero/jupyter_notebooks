@@ -2,3 +2,5 @@
 .ipynb_checkpoints
 venv
 .idea
+pyvenv.cfg
+venv
