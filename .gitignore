@@ -3,4 +3,4 @@
 venv
 .idea
 pyvenv.cfg
-venv
+.env
