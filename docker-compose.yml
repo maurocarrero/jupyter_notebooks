@@ -7,3 +7,9 @@ services:
     volumes:
       - ./work:/home/jovyan/work
     env_file: .env
+    networks:
+      - jupyter
+
+networks:
+  jupyter:
+    name: jupyter
