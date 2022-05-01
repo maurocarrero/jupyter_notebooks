@@ -1,15 +1,27 @@
 version: "3.9"
 services:
   jupyter-lab:
+    environment:
+      ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME}
+      ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD}
+      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
+      ELASTICSEARCH_PORT: ${ELASTICSEARCH_PORT}
+      POSTGRESQL_DB_NAME: ${POSTGRESQL_DB_NAME}
+      POSTGRESQL_USER: ${POSTGRESQL_USER}
+      POSTGRESQL_PASSWORD: ${POSTGRESQL_PASSWORD}
+      POSTGRESQL_HOST: ${POSTGRESQL_HOST}
+      POSTGRESQL_PORT: ${POSTGRESQL_PORT}
     image: jupyter/scipy-notebook:latest
     ports:
-      - "10000:8888"
+      - "8888:8888"
     volumes:
       - ./work:/home/jovyan/work
     env_file: .env
     networks:
       - jupyter
-
+      - elastic
 networks:
   jupyter:
     name: jupyter
+  elastic: # To connect to running elasticsearch container over "elastic" network
+    external: true
